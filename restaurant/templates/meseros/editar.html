@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block titulo %} Editar Cliente {% endblock%}
+
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        Editar Cliente
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Cliente</h4>
+        {% include "clientes/form.html" %}
+    </div>
+    <div class="card-footer text-muted">
+        Administrador: edwin@salazar.tv
+    </div>
+</div>
+{% endblock%}

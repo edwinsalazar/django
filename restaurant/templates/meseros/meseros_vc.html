@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block titulo %} Listado de Clientes {% endblock%}
+
+{% block contenido %}
+<br>
+<br>
+
+<div class="card">
+    <div class="card-header">
+        <a class="btn btn-primary" href="{% url 'cliente_create_vc'%}" role="button">Agregar Cliente</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Clientes</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dni</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Nacionanlidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in object_list %}
+                <tr>
+                    <td>{{cliente.id}}</td>
+                    <td>{{cliente.dni}}</td>
+                    <td>{{cliente.nombre}}</td>
+                    <td>{{cliente.apellido}}</td>
+                    <td>{{cliente.nacionalidad}}</td>
+
+
+                    <td>
+                        <a name="" id="" class="btn btn-primary" href="{% url 'cliente_edit_vc' cliente.id%}"
+                            role="button">Editar</a> |
+                        <a name="" id="" class="btn btn-primary" href="{% url 'cliente_delete_vc' cliente.id%}"
+                            role="button">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="card-footer text-muted">
+        Administrador: edwin@salazar.tv
+    </div>
+</div>
+
+{% endblock%}

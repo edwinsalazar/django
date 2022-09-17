@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block titulo %} Listado de Platos {% endblock%}
+
+{% block contenido %}
+<br>
+<br>
+
+<div class="card">
+    <div class="card-header">
+        <a class="btn btn-primary" href="{% url 'platos_search' %}">Agregar Platos</a>
+        <a class="btn btn-primary" href="" role="button">Buscar Platos</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Clientes</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+
+                    <th>Nombre</th>
+                    <th>Origen</th>
+                    <th>Precio</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for plato in object_list %}
+                <tr>
+                    <td>{{plato.id}}</td>
+
+                    <td>{{plato.nombre}}</td>
+                    <td>{{plato.origen}}</td>
+                    <td>{{plato.precio}}</td>
+
+
+                    <td>
+                        <a name="" id="" class="btn btn-primary" href="" role="button">Editar</a> |
+                        <a name="" id="" class="btn btn-primary" href="" role="button">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="card-footer text-muted">
+        Administrador: edwin@salazar.tv
+    </div>
+</div>
+
+{% endblock%}

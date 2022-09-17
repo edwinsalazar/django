@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block titulo %} Busqueda de platos {% endblock%}
+
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        Buscar Cliente
+    </div>
+    <div>
+        <form action="." method="GET">
+            <label>Búsqueda: </label>
+            <input type="text" name="q" value="{{query|escape}}">
+        </form>
+
+        {% if query %}
+        <h2>Resultado para "{{ query|escape }}"</h2>
+
+        {% if data %}
+        <ul>
+            {% for plato in data %}
+            <li>{{ plato.nombre }} que es de {{ plato.origen }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No se han encontrado Platos</p>
+        {% endif %}
+
+    </div>
+    <div class="card-footer text-muted">
+        Administrador: edwin@salazar.tv
+    </div>
+</div>
+{% endblock%}

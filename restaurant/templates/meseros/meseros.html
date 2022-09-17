@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block titulo %} Listado de Meseros {% endblock%}
+
+{% block contenido %}
+<br>
+<br>
+
+<div class="card">
+    <div class="card-header">
+        <a class="btn btn-primary" href="{% url 'crear'%}" role="button">Agregar Mesero</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Meseros</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dni</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Nacionanlidad</th>
+                    <th>Foto</th>
+
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for meseros in meseros %}
+                <tr>
+                    <td>{{meseros.id}}</td>
+                    <td>{{meseros.dni}}</td>
+                    <td>{{meseros.nombre}}</td>
+                    <td>{{meseros.apellido}}</td>
+                    <td>{{meseros.nacionalidad}}</td>
+                    <td>{{meseros.foto}}</td>
+
+
+                    <td>
+                        <a name="" id="" class="btn btn-primary" href="{% url 'editar' meseros.id%}"
+                            role="button">Editar</a> |
+                        <a name="" id="" class="btn btn-primary" href="{% url 'eliminar' meseros.id %}"
+                            role="button">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="card-footer text-muted">
+        Administrador: edwin@salazar.tv
+    </div>
+</div>
+
+{% endblock%}

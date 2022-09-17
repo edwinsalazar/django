@@ -1,0 +1,30 @@
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% comment %}
+    Renderizado para vistas basadas en funciones
+    {% for campos in formulario %}
+
+    {% endcomment %}
+
+
+    <!-- Renderizado para vistas basadas en clases -->
+    {% for campos in form.visible_fields %}
+    <div class="mb-3">
+        <label for="" class="form-label">{{campos.label}}:</label>
+
+
+        <br>
+        <input type="{{campos.field.widget.input_type}}" class="form-control" name="{{campos.name}}" id=""
+            aria-describedby="helpId" placeholder="{{campos.label}} " value="{{campos.value | default:""}}" />
+
+    </div>
+
+    <div class="col-12 help-text">
+        {{campos.erros}}
+    </div>
+
+    {% endfor %}
+    <input name="" id="" class="btn btn-primary" type="submit" value="Enviar">
+    <a name="" id="" class="btn btn-primary" href="{%url 'platos_list_vc'%}" role="button">Cancelar</a>
+</form>
